@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "typeRoots": [
+            "node_modules/@types",
+            "src/typings/index.d.ts"
+        ],
+        "moduleResolution": "Node",
+        "module": "ES2020"
+    },
+}
