@@ -42,12 +42,15 @@ export const command: Command = {
             query = url.toString();
         };
 
+        
+        await interaction.deferReply();
+
         const videos = await ytClient.search(query, {
             type: 'video'
         }).catch(() => null);
 
         if (videos == null || videos?.items?.length === 0 || videos?.items == null)
-            return interaction.reply({
+            return interaction.editReply({
                 embeds: [
                     _.embeds.short(_(locale.base.noResults), _.colors.error)()
                 ]
@@ -57,7 +60,7 @@ export const command: Command = {
         const video = await ytClient.getVideo(videos.items[0].id).catch(() => null)!;
 
         if (video == null)
-            return interaction.reply({
+            return interaction.editReply({
                 embeds: [
                     _.embeds.short(_(locale.base.noResults), _.colors.error)()
                 ]
@@ -80,7 +83,7 @@ export const command: Command = {
             vDuration += ` (${rawDuration.format('hh:mm:ss')})`;
         }
 
-        return interaction.reply({
+        return interaction.editReply({
             embeds: [
                 _.embeds
                     .long(
