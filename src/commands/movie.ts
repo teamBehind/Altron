@@ -60,10 +60,6 @@ export const command: Command = {
                 ]
             });
 
-        console.log(movie)
-        console.log(query)
-        console.log(safeQuery)
-
         return interaction.reply({
             embeds: [
                 _.embeds.long(`🔎 | "${movie.Title}"`, _.colors.default)([
