@@ -5,6 +5,8 @@ import config from './config';
 import { runEventHandler } from './handler/eventHandler';
 import { green, red } from 'chalk';
 
+global.fetch = require('node-fetch');
+
 const client = new Client({
     /*
       @ For Typescript use Cluster.Client.getInfo() instead of Cluster.data

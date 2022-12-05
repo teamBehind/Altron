@@ -17,6 +17,7 @@
     "mal-scraper": "^2.11.4",
     "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
+    "node-fetch": "^2.6.7",
     "soundcloud.ts": "^0.4.9",
     "sponsorblock-api": "^0.2.2",
     "translatte": "^3.0.1",
