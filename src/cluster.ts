@@ -10,9 +10,7 @@ const manager = new Manager(`${__dirname}/index.js`, {
     token: config[cfgLabel].discord.token
 });
 
-const user = require("os").userInfo().username;
-
-console.log(blue(`--------------------------------------- Hello, ${user}!`));
+console.log(blue(`--------------------------------------- Hello, World!`));
 
 manager.on('clusterCreate', c =>
     console.log(`[${blue('cluster')}]: Launched cluster with id "${red(c.id)}"`));
