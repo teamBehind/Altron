@@ -10,7 +10,7 @@ const manager = new Manager(`${__dirname}/index.js`, {
     token: config[cfgLabel].discord.token
 });
 
-const user = /*require("os").userInfo().username || */"kr.mshk";
+const user = require("os").userInfo().username;
 
 console.log(blue(`--------------------------------------- Hello, ${user}!`));
 

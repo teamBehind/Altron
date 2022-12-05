@@ -45,20 +45,20 @@ export const command: Command = {
             return await interaction.editReply({
                 embeds: [(await replier(songs[0], interaction.user))],
             });
-        else
-            return lotsHandler<SoundcloudTrackV2>(
-                songs,
-                interaction,
-                (song) => song.artwork_url,
-                replier,
-                (song) => song.permalink_url
-            );
+
+        return lotsHandler<SoundcloudTrackV2>(
+            songs,
+            interaction,
+            (song) => song.artwork_url,
+            replier,
+            (song) => song.permalink_url
+        );
     }
 }
 
 const replier = async (song: SoundcloudTrackV2, user, ratio?) => {
     return _inCommand.embeds
-        .long(`🔎 | "${song.title}" ${ratio ?? ''}`, _inCommand.colors.default)([
+        .long(`🔎 | "${song.title}" ${ratio || ''}`, _inCommand.colors.default)([
             {
                 name: _inCommand(locale.base.publishedAt),
                 value: new Date(song.created_at).toLocaleString(),

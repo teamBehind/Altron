@@ -31,18 +31,18 @@ export const command: Command = {
             })
         else if (emojis.length === 1)
             return await interaction.reply({
-                embeds: [(await lotsReplier(emojis[0], interaction.user))]
+                embeds: [(await replier(emojis[0], interaction.user))]
             });
         else {
             return await lotsHandler<EmojiResult>(emojis, interaction, (emoji) => {
                 return emoji.image;
-            }, lotsReplier);
+            }, replier);
         }
     }
 }
 
-const lotsReplier = async (emoji: EmojiResult, user: User, ratio?: string) => {
-    return _inCommand.embeds.long(`🔎 | "${emoji.title}" ${ratio ?? ''}`, _inCommand.colors.default)([
+const replier = async (emoji: EmojiResult, user: User, ratio?: string) => {
+    return _inCommand.embeds.long(`🔎 | "${emoji.title}" ${ratio || ''}`, _inCommand.colors.default)([
         {
             name: _inCommand(locale.base.likes),
             value: emoji.faves.toLocaleString(),

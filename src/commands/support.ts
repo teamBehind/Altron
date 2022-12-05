@@ -1,4 +1,4 @@
-import { config } from "process";
+import config from "../config";
 import { locale, prepare_description } from "../locale/init";
 import { Command } from "../typings";
 import { CommandCategory } from "../typings/enums";

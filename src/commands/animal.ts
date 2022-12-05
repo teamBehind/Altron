@@ -25,7 +25,7 @@ export const command: Command = {
     run: async (client, interaction, _) => {
         await interaction.deferReply();
 
-        const animal: string | Animal = interaction.options.getString('animal') ?? animals[Math.floor(Math.random() * animals.length)];
+        const animal: string | Animal = interaction.options.getString('animal') || animals[Math.floor(Math.random() * animals.length)];
 
         const res = await fetch(`https://some-random-api.ml/animal/${animal}`);
         const data = await res.json();

@@ -85,8 +85,8 @@ export const command: Command = {
                     )).setFooter({
                         text: _(locale.base.poweredBy, { service: engine === "duckduckgo" ? "DuckDuckGo" : "Google" }),
                         iconURL: engine === "duckduckgo"
-                            ? "https://duckduckgo.com/favicon.ico"
-                            : "https://www.google.com/favicon.ico",
+                            ? "https://duckduckgo.com/assets/icons/meta/DDG-iOS-icon_60x60.png"
+                            : "https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png",
                     }).setThumbnail(
                         results[0].icon
                     ),

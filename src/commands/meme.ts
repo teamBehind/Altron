@@ -1,7 +1,6 @@
 // make a command to send a random russian meme
 
 import { Command, MemeResult } from "../typings/";
-import axios from "axios";
 import { CommandCategory } from "../typings/enums";
 import { locale, prepare_description } from "../locale/init";
 
@@ -35,9 +34,10 @@ export const command: Command = {
 };
 
 const getMeme = async (pub: string, filtrate?: string): Promise<MemeResult> => {
-    const { data } = await axios.get(`https://www.reddit.com/r/${pub}/.json`).catch(() => null)
+    const res = await fetch(`https://www.reddit.com/r/${pub}/.json`).catch(() => null);
+    const json = await res.json().catch(() => null);
 
-    let memes = data?.children;
+    let memes = json?.data?.children;
 
     if (filtrate != null)
         memes = memes?.filter((m: { data: { link_flair_text: string } }) => m?.data?.link_flair_text === filtrate);
